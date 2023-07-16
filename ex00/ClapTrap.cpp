@@ -43,15 +43,10 @@ void ClapTrap::takeDamage(unsigned int amount) {
 		std::cout << "ClapTrap " << name << " is already dead!" << std::endl;
 	else
 	{
-		if (static_cast<int>(hitPoint) - static_cast<int>(amount) < 0)
-			hitPoint = 0;
-		else
-		{
-			hitPoint -= amount;
-			if (hitPoint == 0)
-				std::cout << "ClapTrap " << name << " is dead!" << std::endl;
-		}
+		hitPoint -= amount;
 		std::cout << "ClapTrap " << name << " takes " << amount << " points of damage!" << std::endl;
+		if (hitPoint == 0)
+			std::cout << "ClapTrap " << name << " is dead!" << std::endl;
 	}
 }
 
