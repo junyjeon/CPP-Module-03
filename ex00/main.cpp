@@ -17,9 +17,11 @@ int main(void) {
 	std::cout << std::endl;
 
 	Jun.attack("choi");
-	choi.takeDamage(Jun.getDamage());
+	if (0 <choi.getHitPoint())
+		choi.takeDamage(Jun.getDamage());
 	choi.attack("Jun");
-	Jun.takeDamage(choi.getDamage());
+	if (0 < choi.getHitPoint())
+		Jun.takeDamage(choi.getDamage());
 	choi.beRepaired(20);
 	std::cout << std::endl;
 	

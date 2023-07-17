@@ -1,14 +1,14 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap() {
+ClapTrap::ClapTrap() : name("Default"), hitPoint(10), energyPoint(10), attackDamage(0) {
 	std::cout << "ClapTrap default constructor called" << std::endl;
 };
 
 ClapTrap::ClapTrap(std::string _name) : name(_name), hitPoint(10), energyPoint(10), attackDamage(0) {
-	std::cout << "ClapTrap" << name << " is born!" << std::endl;
-	std::cout << "    Hit points(" << hitPoint << ")" << std::endl;
-	std::cout << " Energy points(" << energyPoint << ")" << std::endl;
-	std::cout << " Attack damage(" << attackDamage << ")" << std::endl;
+	std::cout << "ClapTrap " << name << " is born!" << std::endl;
+	std::cout << "     Hit points(" << hitPoint << ")" << std::endl;
+	std::cout << "  Energy points(" << energyPoint << ")" << std::endl;
+	std::cout << "  Attack damage(" << attackDamage << ")" << std::endl;
 	std::cout << std::endl;
 };
 
@@ -43,6 +43,8 @@ void ClapTrap::takeDamage(unsigned int amount) {
 		std::cout << "ClapTrap " << name << " is already dead!" << std::endl;
 	else
 	{
+		if (hitPoint < amount)
+			amount = hitPoint;
 		hitPoint -= amount;
 		std::cout << "ClapTrap " << name << " takes " << amount << " points of damage!" << std::endl;
 		if (hitPoint == 0)
@@ -66,8 +68,12 @@ void ClapTrap::setDamage(unsigned int amount) {
 	std::cout << "ClapTrap " << name << " set damage (" << amount << ')' << std::endl;
 }
 
-unsigned int ClapTrap::getDamage(void) {
+unsigned int ClapTrap::getDamage(void) const {
 	return (attackDamage);
+}
+
+unsigned int ClapTrap::getHitPoint(void) const {
+	return (hitPoint);
 }
 
 ClapTrap::~ClapTrap() {

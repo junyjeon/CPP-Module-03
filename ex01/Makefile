@@ -2,11 +2,11 @@ NAME		=	ScavTrap
 
 CXX			=	c++
 CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
-CXXFLAGS	+=	-fsanitize=address -g2
+# CXXFLAGS	+=	-fsanitize=address -g2
 
 BUILD_DIR	=	bulid
 
-SRC		=	main.cpp ScavTrap.cpp
+SRC		=	main.cpp ClapTrap.cpp ScavTrap.cpp
 OBJ		=	$(patsubst %.cpp, $(BUILD_DIR)/%.o, $(SRC))
 
 all:	$(NAME)
