@@ -16,6 +16,7 @@
   - [ex03: Now it's weird!](#ex03-now-its-weird)
 - [Usage](#usage)
 - [Testing & Debug](#testing--debug)
+- [Visual Guide & Examples](#visual-guide--examples)
 - [Additional Information](#additional-information)
   - [Inheritance](#inheritance)
   - [Virtual Functions](#virtual-functions)
@@ -588,6 +589,121 @@ class ScavTrap : virtual public ClapTrap {}; // 올바른 방법
 5. 함수 오버라이딩 확인
    - attack() 함수가 올바른 버전으로 호출되는지
    - using 선언이 필요한 곳에 되어있는지
+```
+
+### Visual Guide & Examples
+
+• 전체 클래스 구조
+```mermaid
+classDiagram
+    ClapTrap <|-- ScavTrap
+    ClapTrap <|-- FragTrap
+    ScavTrap <|-- DiamondTrap
+    FragTrap <|-- DiamondTrap
+
+    class ClapTrap {
+        -string _name
+        -uint _hitPoints
+        -uint _energyPoints
+        -uint _attackDamage
+        +attack()
+        +takeDamage()
+        +beRepaired()
+    }
+
+    class ScavTrap {
+        +attack()
+        +guardGate()
+    }
+
+    class FragTrap {
+        +highFivesGuys()
+    }
+
+    class DiamondTrap {
+        -string _name
+        +whoAmI()
+    }
+```
+
+• 다이아몬드 상속의 메모리 레이아웃
+```text
+일반 상속의 경우:
++------------------+
+| ClapTrap(from B) |  <- 첫 번째 ClapTrap 인스턴스
++------------------+
+| ClapTrap(from C) |  <- 두 번째 ClapTrap 인스턴스
++------------------+
+| B's members      |
++------------------+
+| C's members      |
++------------------+
+| D's members      |
++------------------+
+
+가상 상속의 경우:
++------------------+
+| vptr(B)          |  <- 가상 테이블 포인터
++------------------+
+| vptr(C)          |  <- 가상 테이블 포인터
++------------------+
+| ClapTrap         |  <- 공유되는 단일 인스턴스
++------------------+
+| B's members      |
++------------------+
+| C's members      |
++------------------+
+| D's members      |
++------------------+
+```
+
+• 게임 시나리오 예시
+```cpp
+int main() {
+    // 전투 시나리오
+    ScavTrap guard("Guard");
+    FragTrap attacker("Attacker");
+    DiamondTrap hero("Hero");
+    
+    std::cout << "\n=== Round 1: Guard Duty ===\n";
+    guard.guardGate();
+    attacker.attack("Guard");
+    guard.takeDamage(30);
+    guard.beRepaired(15);
+    
+    std::cout << "\n=== Round 2: Team Spirit ===\n";
+    attacker.highFivesGuys();
+    hero.whoAmI();
+    hero.attack("Enemy");
+    
+    std::cout << "\n=== Round 3: Final Stand ===\n";
+    // 에너지 소진까지 반복 공격
+    for (int i = 0; i < 6; i++) {
+        hero.attack("Enemy");
+        hero.beRepaired(10);
+    }
+    
+    return 0;
+}
+
+/* 예상 출력
+=== Round 1: Guard Duty ===
+ScavTrap Guard is now in Gate keeper mode
+FragTrap Attacker attacks Guard, causing 30 points of damage!
+ScavTrap Guard takes 30 damage! HP: 70
+ScavTrap Guard is repaired by 15 points! HP: 85
+
+=== Round 2: Team Spirit ===
+FragTrap Attacker requests a positive high fives!
+I am DiamondTrap Hero, also known as ClapTrap Hero_clap_name
+DiamondTrap Hero attacks Enemy, causing 30 points of damage!
+
+=== Round 3: Final Stand ===
+DiamondTrap Hero attacks Enemy, causing 30 points of damage!
+DiamondTrap Hero is repaired by 10 points! HP: 110
+...
+DiamondTrap Hero can't attack! No energy points left!
+*/
 ```
 
 ### Additional Information
