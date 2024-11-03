@@ -3,27 +3,28 @@
 <div align="center">
   <img src="assets/15_cpp_module_03_review.jpg" alt="CPP Module 03 Review" width="800"/>
   
-  [![42 Score](https://img.shields.io/badge/Score-80%2F100-success?style=for-the-badge&logo=42)](https://github.com/your-username/CPP-Module-03)
+  [![42 Score](https://img.shields.io/badge/Score-80%2F100-success?style=for-the-badge&logo=42)](https://github.com/junyjeon/CPP-Module-03)
+  [![C++](https://img.shields.io/badge/C++-98-blue.svg?style=for-the-badge&logo=c%2B%2B)](https://github.com/junyjeon/CPP-Module-03)
 </div>
 
-## Table of Contents
-- [About](#about)
-- [Requirements](#requirements)
-- [Implementation](#implementation)
+## 목차
+- [개요](#개요)
+- [요구사항](#요구사항)
+- [구현](#구현)
   - [ex00: Aaaaand... OPEN!](#ex00-aaaaand-open)
   - [ex01: Serena, my love!](#ex01-serena-my-love)
   - [ex02: Repetitive work](#ex02-repetitive-work)
   - [ex03: Now it's weird!](#ex03-now-its-weird)
-- [Usage](#usage)
-- [Testing & Debug](#testing--debug)
-- [Visual Guide & Examples](#visual-guide--examples)
-- [Additional Information](#additional-information)
-  - [Inheritance](#inheritance)
-  - [Virtual Functions](#virtual-functions)
-  - [Diamond Problem](#diamond-problem)
-- [Reference](#reference)
+- [사용법](#사용법)
+- [테스트 & 디버그](#테스트--디버그)
+- [시각적 가이드 & 예시](#시각적-가이드--예시)
+- [추가 정보](#추가-정보)
+  - [상속](#상속)
+  - [가상 함수](#가상-함수)
+  - [다이아몬드 문제](#다이아몬드-문제)
+- [참고 자료](#참고-자료)
 
-### 🗣️ About
+### 🗣️ 개요
 C++의 상속(Inheritance)을 학습하는 네 번째 C++ 모듈입니다.
 
 • 학습 목표
@@ -50,7 +51,7 @@ C++의 상속(Inheritance)을 학습하는 네 번째 C++ 모듈입니다.
     - virtual 상속
     - 해결 방법
 
-### Requirements
+### 요구사항
 • 컴파일러
   - c++ (clang++)
   - -Wall -Wextra -Werror
@@ -68,7 +69,7 @@ C++의 상속(Inheritance)을 학습하는 네 번째 C++ 모듈입니다.
   - 모든 멤버 함수 구현 필요
   - 가상 소멸자 사용
 
-### Implementation
+### 구현
 
 #### ex00: Aaaaand... OPEN!
 • 요구사항
@@ -456,7 +457,7 @@ void someFunction() {
   - 이름 충돌 해결
   - 멤버 함수와 변수의 모호성 처리
 
-### Testing & Debug
+### 테스트 & 디버그
 
 • 컴파일 및 기본 테스트
 ```bash
@@ -591,7 +592,7 @@ class ScavTrap : virtual public ClapTrap {}; // 올바른 방법
    - using 선언이 필요한 곳에 되어있는지
 ```
 
-### Visual Guide & Examples
+### 시각적 가이드 & 예시
 
 • 전체 클래스 구조
 ```mermaid
@@ -706,9 +707,9 @@ DiamondTrap Hero can't attack! No energy points left!
 */
 ```
 
-### Additional Information
+### 추가 정보
 
-#### Inheritance
+#### 상속(Inheritance)
 • 상속의 종류
 ```cpp
 // 1. public 상속
@@ -750,7 +751,7 @@ Parent2::Parent2()          // 3. 두 번째 부모
 Child::Child()             // 4. 자식
 ```
 
-#### Virtual Functions
+#### 가상 함수(Virtual Functions)
 • 가상 함수의 동작
 ```cpp
 class Base {
@@ -788,7 +789,7 @@ Base* ptr = new Derived();
 delete ptr;  // Derived의 소멸자가 호출됨
 ```
 
-#### Diamond Problem
+#### 다이아몬드 문제(Diamond Problem)
 • 문제 발생 구조
 ```cpp
     A
@@ -837,63 +838,33 @@ Object Layout      // 단일 A 인스턴스 공유
 - 컴파일러 최적화 제한
 ```
 
-### Reference
+### 참고 자료
 > 상속, 가상 함수, 다이아몬드 문제에 대한 심화 자료
 
-• C++ Inheritance
+• C++ 상속(Inheritance)
   - [C++ Inheritance Documentation](https://en.cppreference.com/w/cpp/language/inheritance)
     - 상속의 기본 개념
-    - 접근 지정자
-    - 상속 종류
   
   - [Microsoft: Inheritance in C++](https://learn.microsoft.com/cpp/cpp/inheritance-cpp)
     - 상속 구현 가이드
-    - 모범 사례
-    - 주의사항
 
-• Virtual Functions
+• 가상 함수(Virtual Functions)
   - [Virtual Functions in C++](https://isocpp.org/wiki/faq/virtual-functions)
     - 가상 함수의 작동 원리
-    - vtable 구조
-    - 성능 고려사항
   
   - [Virtual Destructors](https://www.geeksforgeeks.org/virtual-destructor/)
     - 가상 소멸자의 필요성
-    - 메모리 누수 방지
-    - 구현 패턴
 
-• Diamond Problem
+• 다이아몬드 문제(Diamond Problem)
   - [Multiple Inheritance in C++](https://www.cprogramming.com/tutorial/multiple_inheritance.html)
     - 다중 상속의 개념
-    - 문제점과 해결책
-    - 실제 사용 사례
   
   - [Virtual Inheritance](https://en.wikipedia.org/wiki/Virtual_inheritance)
     - 가상 상속의 메커니즘
-    - 메모리 레이아웃
-    - 성능 영향
 
-• 추천 도서
-  - "Effective C++" by Scott Meyers
-    - Item 7: Declare destructors virtual in polymorphic base classes
-    - Item 39: Use private inheritance judiciously
-    - Item 40: Use multiple inheritance judiciously
-  
-  - "C++ Programming Language" by Bjarne Stroustrup
-    - Chapter 20: Derived Classes
-    - Chapter 21: Class Hierarchies
-    - Chapter 24: Virtual Functions
-
-• 유용한 도구
+• 도구
   - [C++ Insights](https://cppinsights.io/)
-    - 가상 함수 테이블 확인
-    - 상속 구조 분석
-  
   - [Compiler Explorer](https://godbolt.org/)
-    - 생성된 어셈블리 코드 확인
-    - 최적화 결과 분석
 
 • 추가 학습 자료
   - [RAII and Rule of Three/Five](https://en.cppreference.com/w/cpp/language/rule_of_three)
-    - 리소스 관리
-    - 복사/이동 의미
