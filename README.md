@@ -1,10 +1,20 @@
-# CPP Module 03
-
 <div align="center">
+  <h1>💻 CPP Module 03</h1>
+  <p>상속 | 클래스 계층 구조와 다중 상속</p>
+
   <img src="assets/15_cpp_module_03_review.jpg" alt="CPP Module 03 Review" width="800"/>
   
-  [![42 Score](https://img.shields.io/badge/Score-80%2F100-success?style=for-the-badge&logo=42)](https://github.com/junyjeon/CPP-Module-03)
-  [![C++](https://img.shields.io/badge/C++-98-blue.svg?style=for-the-badge&logo=c%2B%2B)](https://github.com/junyjeon/CPP-Module-03)
+  <div>
+    <img src="https://img.shields.io/badge/Score-80%2F100-success?style=flat-square&logo=42" alt="42 Score"/>
+    <img src="https://img.shields.io/badge/Language-C++98-00599C?style=flat-square&logo=c%2B%2B" alt="Language"/>
+  </div>
+
+  ### 학습 내용
+  - 클래스 상속의 기본 개념
+  - 접근 지정자 (public, protected, private)
+  - 다중 상속과 다이아몬드 문제
+  - 가상 함수와 오버라이딩
+  - 상속 관계에서의 생성자/소멸자 호출 순서
 </div>
 
 ## 목차
@@ -27,29 +37,22 @@
 ### 🗣️ 개요
 C++의 상속(Inheritance)을 학습하는 네 번째 C++ 모듈입니다.
 
-• 학습 목표
-  - 클래스 상속의 이해와 구현
-  - 가상 함수의 활용
-  - 다중 상속과 다이아몬드 문제 해결
-  - 접근 제어자의 이해
-
-• 주요 개념
-  - Inheritance
-    - 단일 상속
-    - 다중 상속
-    - 상속 접근 지정자
-    - 생성자/소멸자 순서
+#### Inheritance
+  - 단일 상속
+  - 다중 상속
+  - 상속 접근 지정자
+  - 생성자/소멸자 순서
   
-  - Virtual Functions
-    - 가상 함수
-    - 순수 가상 함수
-    - 가상 소멸자
-    - 동적 바인딩
+#### Virtual Functions
+  - 가상 함수
+  - 순수 가상 함수
+  - 가상 소멸자
+  - 동적 바인딩
   
-  - Diamond Problem
-    - 다중 상속의 문제점
-    - virtual 상속
-    - 해결 방법
+#### Diamond Problem
+  - 다중 상속의 문제점
+  - virtual 상속
+  - 해결 방법
 
 ### 요구사항
 • 컴파일러
